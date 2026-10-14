@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do My Laundry — schedule a pickup, get your laundry done</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">🧺 Do My Laundry</div>
+    <nav>
+      <a href="#book">Book a pickup</a>
+      <a href="#orders">My orders</a>
+      <a href="#washers">For washers</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Laundry day, handled by someone else.</h1>
+    <p class="lede">Pick a time, leave your bag at the door, and get it back washed, folded, and smelling right. In the full version, the people doing the washing are verified locals with their own cars — neighbors earning money on their schedule. This page is the working front-end of that idea.</p>
+  </section>
+
+  <section id="book" class="card">
+    <h2>Book a pickup</h2>
+    <form id="orderForm">
+      <div class="field-grid">
+        <label class="field"><span>Your name</span>
+          <input type="text" id="fName" required maxlength="40" placeholder="Your name">
+        </label>
+        <label class="field"><span>Pickup address</span>
+          <input type="text" id="fAddress" required maxlength="90" placeholder="Street, building, unit">
+        </label>
+        <label class="field"><span>Pickup date</span>
+          <input type="date" id="fDate" required>
+        </label>
+        <label class="field"><span>Pickup time window</span>
+          <select id="fTime">
+            <option>8–10 AM</option><option>10 AM–12 PM</option>
+            <option>12–2 PM</option><option>2–4 PM</option><option>4–6 PM</option><option>6–8 PM</option>
+          </select>
+        </label>
+        <label class="field"><span>How many bags?</span>
+          <input type="number" id="fBags" required min="1" max="10" value="1">
+        </label>
+      </div>
+      <fieldset class="services">
+        <legend>Services</legend>
+        <label><input type="checkbox" class="svc" value="Wash &amp; fold" data-price="18" checked> Wash &amp; fold — $18/bag</label>
+        <label><input type="checkbox" class="svc" value="Hang dry delicates" data-price="5"> Hang dry delicates — $5/bag</label>
+        <label><input type="checkbox" class="svc" value="Ironing / press" data-price="8"> Ironing / press — $8/bag</label>
+        <label><input type="checkbox" class="svc" value="Hypoallergenic detergent" data-price="3"> Hypoallergenic detergent — $3/bag</label>
+        <label><input type="checkbox" class="svc" value="Same-day rush" data-price="10"> Same-day rush — $10 flat</label>
+      </fieldset>
+      <label class="field"><span>Notes for your washer (gate code, stairs, whatever helps)</span>
+        <textarea id="fNotes" rows="2" maxlength="240" placeholder="Optional"></textarea>
+      </label>
+      <div class="estimate">Estimated total: <strong id="estimate">$18</strong>
+        <span class="estimate-note">(demo prices — final price confirmed at pickup in the real app)</span></div>
+      <button type="submit" class="btn-primary">Request pickup</button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+  </section>
+
+  <section id="orders" class="card">
+    <h2>My orders <span class="count" id="orderCount"></span></h2>
+    <div id="orderList"></div>
+    <p class="empty-note" id="noOrders">No orders yet. Book a pickup above and it'll show up here with live status tracking.</p>
+  </section>
+
+  <section id="washers" class="card">
+    <h2>Want to be a washer?</h2>
+    <p>The other half of the idea: people with a car and a washing machine (or a laundromat they like) earn money picking up and doing laundry for people near them. In the real app, washers go through an identity check before their first pickup — that's what makes it safe for both sides.</p>
+    <p class="honest">Honest note: washer sign-up isn't wired up in this demo, and neither are payments or real pickup dispatch. Orders here are saved only in your browser, and the status buttons on each order simulate the flow so you can click through the whole experience. See the README.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p>Do My Laundry — a first working version of my laundry-service idea. Plain HTML, CSS, and JavaScript.</p></div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
